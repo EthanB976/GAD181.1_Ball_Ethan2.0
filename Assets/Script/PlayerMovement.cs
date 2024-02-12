@@ -77,8 +77,10 @@ public class PlayerMovement : MonoBehaviour
     {
         _active = false;
         _collider.enabled = false;
+        Debug.Log("Die");
         MiniJump();
-        Respawn();
+        StartCoroutine(Respawn());
+        
     }
 
     public void SetRespawnPoint(Vector2 position)
@@ -88,11 +90,14 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Respawn()
     {
+        Debug.Log("Respawn");
         yield return new WaitForSeconds(1f);
-        transform.position = (Vector3)_respawnPoint;
+        transform.position = (Vector2)_respawnPoint;
         _active = true;
         _collider.enabled = true;
         MiniJump();
     }
+
+    
 
 }
