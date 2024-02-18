@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         SetRespawnPoint((Vector2)transform.position);
     }
@@ -98,6 +99,22 @@ public class PlayerMovement : MonoBehaviour
         MiniJump();
     }
 
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Spike"))
+        {
+            Die();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.CompareTag("CheckPoint"))
+        {
+            SetRespawnPoint((Vector2)transform.position);
+        }
+    }
 
 }
