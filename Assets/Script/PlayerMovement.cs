@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,17 +13,27 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
     private Collider2D _collider;
     private Vector2 _respawnPoint;
+    private TrailRenderer _trailRenderer;
 
     [SerializeField] private bool _active = true;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+
+    [Header("Dashing")]
+    [SerializeField] private float _dashingVelocity = 14f;
+    [SerializeField] private float _dashingTime = 0.5f;
+    private Vector2 _dashingDir;
+    private bool _isDashing;
+    private bool _canDash = true;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         SetRespawnPoint((Vector2)transform.position);
+        _trailRenderer = GetComponent<TrailRenderer>();
     }
 
 
@@ -43,9 +54,45 @@ public class PlayerMovement : MonoBehaviour
         Flip();
 
         if (!_active)
+        
+            return;
+
+        var dashInput = Input.GetButtonDown("Dash");
+
+        if (dashInput && _canDash)
         {
+            _isDashing = true;
+            _canDash = false;
+            _trailRenderer.emitting = true;
+            _dashingDir = new Vector2(horizontal, Input.GetAxisRaw("Vertical"));
+            if (_dashingDir == Vector2.zero)
+            {
+                _dashingDir = new Vector2(transform.localScale.x, 0);
+            }
+            StartCoroutine(StopDashing());
+        }
+
+        
+
+        if (_isDashing)
+        {
+            rb.velocity = _dashingDir.normalized * _dashingVelocity;
             return;
         }
+
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(1);
+        }
+
+        if (IsGrounded())
+        {
+            _canDash = true;
+        }
+        
+
+       
     }
 
     private void FixedUpdate()
@@ -116,5 +163,15 @@ public class PlayerMovement : MonoBehaviour
             SetRespawnPoint((Vector2)transform.position);
         }
     }
+
+
+    private IEnumerator StopDashing()
+    {
+        yield return new WaitForSeconds(_dashingTime);
+        _trailRenderer.emitting = false;
+        _isDashing = false;
+    }
+
+
 
 }

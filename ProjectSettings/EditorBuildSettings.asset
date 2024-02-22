@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/End Scene.unity
     guid: 5804a7142552eae4394c437de99f700a
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: ef0c27158f246804d93b755265aad1d6
+  - enabled: 1
+    path: Assets/Scenes/Shake Run Level 2.unity
+    guid: 013cc959e4b007a47bd44e7687dbfa05
   m_configObjects: {}

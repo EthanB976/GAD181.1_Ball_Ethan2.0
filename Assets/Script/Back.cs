@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Store : MonoBehaviour
+public class Back : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    public void PlayGame()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(0);
     }
-
-
-
 }
