@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] float elapsedTime;
+    [SerializeField] float elapsedTime = 30;
+    [SerializeField] private int addTime = 10 ;
     void Update()
     {
         elapsedTime -= Time.deltaTime;
@@ -23,7 +25,16 @@ public class Timer : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
+
+       
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        elapsedTime += addTime;
 
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+
+    }
 }
