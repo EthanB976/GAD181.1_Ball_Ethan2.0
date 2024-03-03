@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float elapsedTime = 30;
-    [SerializeField] private int addTime = 10 ;
+    [SerializeField] private int addTime = 10;
     void Update()
     {
         elapsedTime -= Time.deltaTime;
