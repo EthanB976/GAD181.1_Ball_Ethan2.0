@@ -645,6 +645,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5725082353152612927, guid: 2d96bf60a3371c54e86ea763ffd4f02f, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 687233305}
+    - target: {fileID: 5725082353152612927, guid: 2d96bf60a3371c54e86ea763ffd4f02f, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 687233304}
     - target: {fileID: 8380846085028046090, guid: 2d96bf60a3371c54e86ea763ffd4f02f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -775,6 +783,16 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
+--- !u!4 &687233304 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1337449099532443823, guid: 2d96bf60a3371c54e86ea763ffd4f02f, type: 3}
+  m_PrefabInstance: {fileID: 687233301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &687233305 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 300494622458269310, guid: 2d96bf60a3371c54e86ea763ffd4f02f, type: 3}
+  m_PrefabInstance: {fileID: 687233301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &687233310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 334716548899695540, guid: 2d96bf60a3371c54e86ea763ffd4f02f, type: 3}

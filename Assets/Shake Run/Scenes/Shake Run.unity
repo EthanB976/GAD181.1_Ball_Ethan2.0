@@ -9493,6 +9493,11 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
+--- !u!50 &1726910511 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 300494622458269310, guid: 2d96bf60a3371c54e86ea763ffd4f02f, type: 3}
+  m_PrefabInstance: {fileID: 6093641753470248360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1749065194
 GameObject:
   m_ObjectHideFlags: 0
@@ -9863,6 +9868,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820746987}
   m_CullTransparentMesh: 1
+--- !u!4 &1824015869 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1337449099532443823, guid: 2d96bf60a3371c54e86ea763ffd4f02f, type: 3}
+  m_PrefabInstance: {fileID: 6093641753470248360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1843649241
 GameObject:
   m_ObjectHideFlags: 0
@@ -11471,6 +11481,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5725082353152612927, guid: 2d96bf60a3371c54e86ea763ffd4f02f, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1726910511}
+    - target: {fileID: 5725082353152612927, guid: 2d96bf60a3371c54e86ea763ffd4f02f, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1824015869}
     - target: {fileID: 8380846085028046090, guid: 2d96bf60a3371c54e86ea763ffd4f02f, type: 3}
       propertyPath: m_Name
       value: Player
